@@ -1,19 +1,17 @@
 {
-  "name": "do-it-typescript",
+  "name": "ch02-1",
   "version": "1.0.0",
-  "description": "do, play",
+  "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "ts-node src",
-    "build": "tsc && node dist",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@types/node": "^20.11.28",
+    "@types/node": "^20.11.30",
     "ts-node": "^10.9.2",
-    "typescript": "^5.4.2"
+    "typescript": "^5.4.3"
   }
 }
