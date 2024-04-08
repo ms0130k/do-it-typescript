@@ -1,2 +1,2 @@
-let a = (callback: () => void): void => callback()
-a(() => console.log('First-class function')) // First-class function
+let call = (callback: () => void): void => callback()
+call(() => console.log('First-class function')) // First-class function
