@@ -6,3 +6,13 @@ export function* generator() {
   }
   console.log('generator finished')
 }
+
+export function* rangeGenerator (from: number, to: number) {
+  let value = from
+  while (true) {
+    value++
+    if (value % 2 === 0 && value < 10) {
+      yield value
+    }
+  }
+}
