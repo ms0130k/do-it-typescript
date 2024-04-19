@@ -7,15 +7,34 @@ readFile('./src/test.txt', (err: Error, buffer: Buffer) => {
     console.log('비동기: ', buffer.toString())
 })
 
-const readFilePromise = (filename: string): Promise<Buffer> =>
-  new Promise((resolve, reject) => {
+
+
+
+
+
+
+
+
+
+
+
+const rfPromise = (filename: string): Promise<Buffer> => {
+  return new Promise((resolve, reject) => {
     readFile(filename, (err, buffer) => {
-      if (err) reject(err)
-      else resolve(buffer)
+      if (err) {
+        reject(err)
+      } else {
+        resolve(buffer)
+      }
     })
-  });
+  })
+}
+
+rfPromise('./src/test.txt')
+  .then(buffer => console.log('promise: ', buffer.toString()))
+;
 
 (async () => {
-  const buffer = await readFilePromise('./src/test.txt')
-  console.log('promise: ', buffer.toString())
-})()
+  const result = await rfPromise('./src/test.txt');
+  console.log('async/await: ', result.toString());
+})();
