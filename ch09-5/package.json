@@ -1,5 +1,5 @@
 {
-  "name": "ch09-4",
+  "name": "ch09-5",
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
@@ -10,9 +10,7 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
+    "@types/ramda": "^0.29.12",
     "ramda": "^0.30.0"
-  },
-  "devDependencies": {
-    "@types/ramda": "^0.29.12"
   }
 }
