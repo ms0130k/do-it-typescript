@@ -2,13 +2,12 @@ import * as R from 'ramda'
 import {IPerson, makeRandomPerson} from './model/person';
 
 const getName = R.pipe(
-  R.prop('name'),
-  R.tap(name => console.log(name))
+  R.prop('name')
 )
 
-const person: IPerson = makeRandomPerson()
-console.log('person: ', person);
-const originalName = getName(person)
+const person = makeRandomPerson()
 
-const modifiedPerson = R.assoc('name', 'Albert Einstein')(person)
+const originalName = getName(person)
+const modifiedPerson = R.assoc('name')('Test Name')(person)
 const modifiedName = getName(modifiedPerson)
+console.assert(modifiedName === 'Test Name');
