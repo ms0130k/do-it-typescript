@@ -1,5 +1,5 @@
 import * as R from 'ramda'
 
 const left = {name: 'Jack'}, right = {name: 'Jane', age: 32}
-const person = R.mergeLeft(left, right)
-console.assert(person.name === 'Jack');
+const person = R.mergeRight(left, right)
+console.assert(person.name === 'Jane');
