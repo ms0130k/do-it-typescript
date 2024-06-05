@@ -1,7 +1,7 @@
-import * as R from 'ramda'
+import * as R from 'ramda';
 
-type NumberToNumber = (n: number) => number
-const applyDiscount = (minimum: number, discount: number): NumberToNumber =>
+type NumToNumFunc = (n: number) => number
+const applyDiscount = (minimum: number, discount: number): NumToNumFunc =>
   R.pipe(
     R.ifElse(
       R.flip(R.gte)(minimum),
@@ -9,8 +9,8 @@ const applyDiscount = (minimum: number, discount: number): NumberToNumber =>
       R.identity
     ),
     R.tap(amount => console.log(amount))
-  )
-const calcPrice = applyDiscount(5000, 500)
+  );
 
-calcPrice(6000)
-calcPrice(4500)
+const calcPrice = applyDiscount(5000, 500);
+const discountPrice = calcPrice(6000);
+const notDiscountPrice = calcPrice(4500);
