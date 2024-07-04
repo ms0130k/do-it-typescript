@@ -1,0 +1,18 @@
+import * as R from 'ramda';
+import * as fs from 'fs';
+import {IO} from '../classes/IO'
+
+// @ts-ignore
+const work1 = () => fs.readFile('package.json');
+const work2 = (json1) => () => {
+  const json2 = fs.readFileSync('tsconfig.json');
+  return [json1, json2];
+};
+
+const result = IO.of(work1)
+  .chain(json1 => IO.of(work2(json1)))
+  .map(R.map((JSON.parse)))
+  .map(R.reduce((result: object, obj: object) => ({...result, ...obj}), {}))
+  .runIO()
+
+console.log(result);
